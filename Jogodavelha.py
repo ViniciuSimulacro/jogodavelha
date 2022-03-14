@@ -28,9 +28,30 @@ def entrada():
     print('-*'*13)
 
 def jogador1():
+    x = [1, 2, 3]
+    while True:
+        try:
+            linha = int(input('Em qual linha vc quer jogar [1,2,3]: '))
+            if linha not in x:
+                print('Erro! Digite um numero de 1 a 3!')
+            if linha in x:
+                break
+        except ValueError:
+            print('Erro! Digite um numero de 1 a 3!')
 
-    linha = int(input('Em qual linha vc quer jogar [1,2,3]: '))
-    coluna = str(input('Em qual coluna vc quer jogar: [A,B,C]: '))
+
+    while True:
+        y = ['a','b','c']
+        try:
+            coluna = str(input('Em qual coluna vc quer jogar: [A,B,C]: '))
+            if coluna not in y:
+                print('Erro! Digite uma letra entre A, B ou C')
+            if coluna in y:
+                break
+        except ValueError:
+            print('Erro! Digite uma letra entre A, B ou C')
+
+
     print('-*' * 13)
     if coluna == 'a':
         coluna = 0
@@ -47,8 +68,29 @@ def jogador1():
         c[coluna] = ['X']
 
 def jogador2():
-    linha = int(input('Em qual linha vc quer jogar [1,2,3]: '))
-    coluna = str(input('Em qual coluna vc quer jogar: [A,B,C]: '))
+    x = [1, 2, 3]
+    while True:
+        try:
+            linha = int(input('Em qual linha vc quer jogar [1,2,3]: '))
+            if linha not in x:
+                print('Erro! Digite um numero de 1 a 3!')
+            if linha in x:
+                break
+        except ValueError:
+            print('Erro! Digite um numero de 1 a 3!')
+
+    while True:
+        y = ['a', 'b', 'c']
+        try:
+            coluna = str(input('Em qual coluna vc quer jogar: [A,B,C]: '))
+            if coluna not in y:
+                print('Erro! Digite uma letra entre A, B ou C')
+            if coluna in y:
+                break
+        except ValueError:
+            print('Erro! Digite uma letra entre A, B ou C')
+
+
     print('-*' * 13)
 
     if coluna == 'a':
