@@ -1,7 +1,8 @@
 from time import sleep
+from random import randint
 
-linha = 0
-coluna = 0
+linha = ''
+coluna = ''
 cont = 1
 novo = ''
 
@@ -14,9 +15,6 @@ def entrada():
     print('|Simulacro Inc.|')
     print('-*' * 8)
     sleep(0)
-    '''print('')
-    print('Caso o jogo empate digite o numero 4 no campo "linha" para recomeçar o jogo!')
-    sleep(0)'''
     print('')
     print('Vamos começar?')
     sleep(0)
@@ -186,40 +184,248 @@ def empate():
     print('')
 
 
+def computador_jogando():
+    print('Computador jogando!')
+    print('-*' * 13)
+    while True:
+        sleep(1)
+        global cont, linha, coluna
+
+        # vitória do computador
+        if a[0] == ['0'] and a[1] == ['0']:
+            if a[2] == ['-']:
+                a[2] = ['0']
+                break
+        if a[0] == ['0'] and b[0] == ['0']:
+            if c[0] == ['-']:
+                c[0] = ['0']
+                break
+        if a[1] == ['0'] and b[1] == ['0']:
+            if c[1] == ['-']:
+                c[1] = ['0']
+                break
+        if a[2] == ['0'] and b[2] == ['0']:
+            if c[2] == ['-']:
+                c[2] = ['0']
+                break
+        if a[1] == ['0'] and c[1] == ['0']:
+            if b[1] == ['-']:
+                b[1] = ['0']
+                break
+        if a[2] == ['0'] and c[0] == ['0']:
+            if b[1] == ['-']:
+                b[1] = ['0']
+                break
+        if a[2] == ['0'] and c[2] == ['0']:
+            if b[2] == ['-']:
+                b[2] = ['0']
+                break
+        if a[0] == ['0'] and a[2] == ['0']:
+            if a[1] == ['-']:
+                a[1] = ['0']
+                break
+
+        if b[0] == ['0'] and b[1] == ['0']:
+            if b[2] == ['-']:
+                b[2] = ['0']
+                break
+        if b[0] == ['0'] and b[2] == ['0']:
+            if b[1] == ['-']:
+                b[1] = ['0']
+                break
+        if b[1] == ['0'] and b[2] == ['0']:
+            if b[0] == ['-']:
+                b[0] = ['0']
+                break
+        if b[2] == ['0'] and c[2] == ['0']:
+            if a[2] == ['-']:
+                a[2] = ['0']
+                break
+
+        if c[0] == ['0'] and c[1] == ['0']:
+            if c[2] == ['-']:
+                c[2] = ['0']
+                break
+        if c[0] == ['0'] and b[1] == ['0']:
+            if a[2] == ['-']:
+                a[2] = ['0']
+                break
+        if c[2] == ['0'] and b[1] == ['0']:
+            if a[0] == ['-']:
+                a[0] = ['0']
+                break
+        if c[0] == ['0'] and c[2] == ['0']:
+            if c[1] == ['-']:
+                c[1] = ['0']
+                break
+        if c[1] == ['0'] and c[2] == ['0']:
+            if c[0] == ['-']:
+                c[0] = ['0']
+                break
+
+        #defesa do computador
+        if a[0] == ['X'] and a[1] == ['X']:
+            if a[2] == ['-']:
+                a[2] = ['0']
+                break
+        if a[0] == ['X'] and b[0] == ['X']:
+            if c[0] == ['-']:
+                c[0] = ['0']
+                break
+        if a[0] == ['X'] and a[2] == ['X']:
+            if a[1] == ['-']:
+                a[1] = ['0']
+                break
+        if a[1] == ['X'] and a[2] == ['X']:
+            if a[0] == ['-']:
+                a[0] = ['0']
+                break
+        if a[0] == ['X'] and b[1] == ['X']:
+            if c[2] == ['-']:
+                c[2] = ['0']
+                break
+        if a[0] == ['X'] and c[0] == ['X']:
+            if b[0] == ['-']:
+                b[0] = ['0']
+                break
+        if a[1] == ['X'] and b[1] == ['X']:
+            if c[1] == ['-']:
+                c[1] = ['0']
+                break
+        if a[1] == ['X'] and c[1] == ['X']:
+            if b[1] == ['-']:
+                b[1] = ['0']
+                break
+        if a[2] == ['X'] and b[2] == ['X']:
+            if c[2] == ['-']:
+                c[2] = ['0']
+                break
+        if a[1] == ['X'] and b[2] == ['X']:
+            if c[0] == ['-']:
+                c[0] = ['0']
+                break
+        if a[2] == ['X'] and c[2] == ['X']:
+            if b[2] == ['-']:
+                b[2] = ['0']
+                break
+
+        if b[0] == ['X'] and b[1] == ['X']:
+            if b[2] == ['-']:
+                b[2] = ['0']
+                break
+        if b[0] == ['X'] and b[2] == ['X']:
+            if b[1] == ['-']:
+                b[1] = ['0']
+                break
+        if b[1] == ['X'] and c[1] == ['X']:
+            if a[1] == ['-']:
+                a[1] = ['0']
+                break
+
+        if c[0] == ['X'] and c[1] == ['X']:
+            if c[2] == ['-']:
+                c[2] = ['0']
+                break
+        if c[0] == ['X'] and b[1] == ['X']:
+            if a[2] == ['-']:
+                a[2] = ['0']
+                break
+        if c[2] == ['X'] and b[1] == ['X']:
+            if a[0] == ['-']:
+                a[0] = ['0']
+                break
+        if c[0] == ['X'] and c[2] == ['X']:
+            if c[1] == ['-']:
+                c[1] = ['0']
+                break
+
+        #jogada randomica do computador
+        while True:
+            x = randint(1, 3)
+            y = randint(0, 2)
+
+            linha = x
+            coluna = y
+
+
+            if a[coluna] == ['X'] or ['0'] \
+                or b[coluna] == ['X'] or ['0'] \
+                or c[coluna] == ['X'] or ['0']:
+
+                if linha == 1:
+                    if a[coluna] == ['-']:
+                        a[coluna] = ['0']
+                        break
+
+                if linha == 2:
+                    if b[coluna] == ['-']:
+                        b[coluna] = ['0']
+                        break
+
+                if linha == 3:
+                    if c[coluna] == ['-']:
+                        c[coluna] = ['0']
+                        break
+        break
+
+
 
 while True:
     while True:
 
         novo = ''
         entrada()
-        cont = 1
+        cont = 0
         a = [['-'], ['-'], ['-']]
         b = [['-'], ['-'], ['-']]
         c = [['-'], ['-'], ['-']]
+        resposta = (1,2)
+        jogadores = ''
+        while jogadores not in resposta:
+            try:
+                jogadores = int(input('\nDigite 1 para jogar com o computador \nou digite 2 para jogar com um amigo: '))
+                if jogadores not in resposta:
+                    print('Erro! Escolha 1 ou 2 jogadores! ')
+                if jogadores in resposta:
+                    break
+            except ValueError:
+                print('Erro! Digite [1] para jogar com PC ou [2] para jogar com amigo, POR FAVOR!')
+        print('')
+        print('-*' * 13)
         while True:
             while cont <= 9:
-                quadro()
-                print('Jogador 1 - "X"')
-                jogador1()
-                cont += 1
-                vitoria()
-                if cont == 9:
-                    empate()
-                    break
-                if cont == 10:
-                    break
-
-                # segundo jogador2
-                quadro()
-                print('Jogador 2 - "0"')
-                jogador2()
-                cont += 1
-                vitoria()
-                if cont == 9:
-                    empate()
-                    break
-                if cont == 10:
-                    break
+                if jogadores == 1 or 2:
+                    quadro()
+                    print('Jogador 1 - "X"')
+                    jogador1()
+                    cont += 1
+                    vitoria()
+                    if cont == 9:
+                        empate()
+                        quadro()
+                        break
+                    if cont == 10:
+                        break
+                    quadro()
+                if jogadores == 1:
+                    computador_jogando()
+                    cont +=1
+                    vitoria()
+                    if cont == 9:
+                        empate()
+                        break
+                    if cont == 10:
+                        break
+                if jogadores == 2:
+                    print('Jogador 2 - "0"')
+                    jogador2()
+                    cont += 1
+                    vitoria()
+                    if cont == 9:
+                        empate()
+                        break
+                    if cont == 10:
+                        break
             print(''
                   '')
             sleep(2)
